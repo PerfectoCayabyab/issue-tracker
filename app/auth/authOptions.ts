@@ -19,7 +19,7 @@ const authOptions: NextAuthOptions = {
         },
       },
       async authorize(credentials, req) {
-        if (!credentials?.email || credentials?.password) return null;
+        if (!credentials?.email || !credentials.password) return null;
 
         const user = await prisma.user.findUnique({
           where: { email: credentials.email },

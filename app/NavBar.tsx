@@ -62,14 +62,16 @@ const NavLinks = () => {
 const AuthStatus = () => {
   const { status, data: session } = useSession();
 
-  if (status === "loading") return  <Skeleton width="3rem" />;
- 
+  if (status === "loading") return <Skeleton width="3rem" />;
 
   if (status === "unauthenticated")
     return (
-      <Link className="nav-link" href="/api/auth/signin">
-        Log in
-      </Link>
+      <Flex gap="5">
+        <Text className="font-bold">Test Account: admin@email.com 12345</Text>
+        <Link className="nav-link" href="/api/auth/signin">
+          Log in
+        </Link>
+      </Flex>
     );
 
   return (
@@ -77,7 +79,7 @@ const AuthStatus = () => {
       <DropdownMenu.Root>
         <DropdownMenu.Trigger>
           <Avatar
-            src={session!.user!.image!}
+            src={session!.user!.image! ? session!.user!.image! : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ9ZR05OcE3YTkQAZa2bd2DbfBW0udkuGtRg&s"}
             fallback="?"
             size="2"
             radius="full"
