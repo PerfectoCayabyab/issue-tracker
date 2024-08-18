@@ -18,6 +18,7 @@ CREATE TABLE `User` (
     `username` VARCHAR(191) NULL,
     `email` VARCHAR(191) NULL,
     `emailVerified` DATETIME(3) NULL,
+    `hashedPassword` VARCHAR(191) NULL,
     `image` VARCHAR(191) NULL,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updatedAt` DATETIME(3) NOT NULL,
